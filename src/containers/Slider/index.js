@@ -19,14 +19,15 @@ const Slider = () => {
   useEffect(() => {
     nextCard();
   });
+ 
   return (
     <div className="SlideCardList">
-      {byDateDesc?.map((event, idx) => (
+      {byDateDesc?.map((event, id) => (
         <>
           <div
             key={event.id}
             className={`SlideCard SlideCard--${
-              index === idx ? "display" : "hide"
+              index === id ? "display" : "hide"
             }`}
           >
             <img src={event.cover} alt="forum" />
@@ -42,7 +43,7 @@ const Slider = () => {
             <div className="SlideCard__pagination">
               {byDateDesc.map((_, radioIdx) => (
                 <input
-                  key={`${radioIdx.title}`}
+                  key={Math.random()}
                   type="radio"
                   name="radio-button"
                   checked={index === radioIdx}
