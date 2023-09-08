@@ -42,5 +42,5 @@ EventCard.defaultProps = {
   imageAlt: "image",
   small: false,
 }
-console.log("eventCard")
+
 export default EventCard;
