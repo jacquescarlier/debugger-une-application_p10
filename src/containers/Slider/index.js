@@ -19,6 +19,11 @@ const Slider = () => {
   useEffect(() => {
     nextCard();
   });
+
+  const generateKey = (index) => {
+    return `${new Date().getTime}_${index} `
+  }
+
 console.log("data", data)
 console.log("bydatadesc",byDateDesc)
   return (
@@ -26,7 +31,8 @@ console.log("bydatadesc",byDateDesc)
       {byDateDesc?.map((event, id) => (
         <>
           <div
-            key={event.id}
+          data-id={event.date}
+            key={event.date}
             className={`SlideCard SlideCard--${index === id ? "display" : "hide"
               }`}
           >
@@ -41,9 +47,10 @@ console.log("bydatadesc",byDateDesc)
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((_, radioIdx) => (
-                  <input
-                    key={Math.random()}
+              {byDateDesc.map((e, radioIdx) => (
+                 <input
+                    data-id={generateKey(radioIdx)}
+                    key={generateKey(radioIdx)}
                     type="radio"
                     name="radio-button"
                     checked={index === radioIdx}
