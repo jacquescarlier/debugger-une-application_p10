@@ -20,9 +20,7 @@ const Slider = () => {
     nextCard();
   });
 
-  const generateKey = (index) => {
-    return `${new Date().getTime}_${index} `
-  }
+
 
 console.log("data", data)
 console.log("bydatadesc",byDateDesc)
@@ -49,8 +47,8 @@ console.log("bydatadesc",byDateDesc)
             <div className="SlideCard__pagination">
               {byDateDesc.map((e, radioIdx) => (
                  <input
-                    data-id={generateKey(radioIdx)}
-                    key={generateKey(radioIdx)}
+                    data-id={e.title}
+                    key={e.title}
                     type="radio"
                     name="radio-button"
                     checked={index === radioIdx}
