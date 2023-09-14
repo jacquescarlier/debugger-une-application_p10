@@ -32,6 +32,7 @@ const Form = ({ onSuccess, onError }) => {
           <Field placeholder="Votre nom" label="Nom" />
           <Field placeholder="Votre  prénom" label="Prénom" />
           <Select
+          required
             selection={["Personel", "Entreprise"]}
             onChange={() => null}
             label="Personel / Entreprise"
