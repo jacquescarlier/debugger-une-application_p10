@@ -21,14 +21,15 @@ const EventList = () => {
       : data?.events) || [];
  
                               console.log("filtered", filteredEvents)
+                              console.log("event.type", type)
 
 // apply pagination on filtered events
     const paginationEvents = filteredEvents.slice(
       (currentPage - 1) * PER_PAGE,
       currentPage * PER_PAGE
     );
-   
-                            console.log("filtered.slice", filteredEvents.slice(
+                            console.log("current-page", currentPage)
+                            console.log("paginationEvents", filteredEvents.slice(
                             (currentPage - 1) * PER_PAGE,
                             currentPage * PER_PAGE
                             ))
