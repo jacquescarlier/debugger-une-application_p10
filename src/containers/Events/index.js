@@ -27,13 +27,19 @@ const EventList = () => {
                               console.log("event.type", type)
 
 // apply pagination on filtered events
-// (1-1 * 9) à (1 * 9 ) va de 0 à 9 en page 1  ou de  9 à 18 en page 2
+// (1-1 * 9) à (1 * 9 ) va de 0 à 8 en page 1  ou de  9 à 18 en page 2
+// ne devrais je pas faire de 0 à 8 et de 9 à 17, l'indice commence bien à 0
+
     const paginationEvents = filteredEvents.slice(
       (currentPage - 1) * PER_PAGE,
       currentPage * PER_PAGE
     );
                             console.log("current-page", currentPage)
                             console.log("paginationEvents", paginationEvents)
+                            console.log("slice", filteredEvents.slice(
+                              (currentPage - 1) * PER_PAGE,
+                              currentPage * PER_PAGE
+                            ))
 // math.ceil retourne le plus petit entier supérieur ou égal au nombre donné
     const pageNumber = Math.ceil(filteredEvents.length / PER_PAGE);
 // exemple pour soirée => 4/9 = 1, pour conférence 10/9 = 2
