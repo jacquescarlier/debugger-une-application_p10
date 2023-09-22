@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/debugger-une-application_P10/static/css/main.ee2a8b22.css",
-    "main.js": "/debugger-une-application_P10/static/js/main.d93b713b.js",
-    "static/js/787.227b7f2b.chunk.js": "/debugger-une-application_P10/static/js/787.227b7f2b.chunk.js",
-    "index.html": "/debugger-une-application_P10/index.html",
-    "main.ee2a8b22.css.map": "/debugger-une-application_P10/static/css/main.ee2a8b22.css.map",
-    "main.d93b713b.js.map": "/debugger-une-application_P10/static/js/main.d93b713b.js.map",
-    "787.227b7f2b.chunk.js.map": "/debugger-une-application_P10/static/js/787.227b7f2b.chunk.js.map"
+    "main.css": "/debugger-une-application_p10/static/css/main.ee2a8b22.css",
+    "main.js": "/debugger-une-application_p10/static/js/main.c1c32af5.js",
+    "static/js/787.227b7f2b.chunk.js": "/debugger-une-application_p10/static/js/787.227b7f2b.chunk.js",
+    "index.html": "/debugger-une-application_p10/index.html",
+    "main.ee2a8b22.css.map": "/debugger-une-application_p10/static/css/main.ee2a8b22.css.map",
+    "main.c1c32af5.js.map": "/debugger-une-application_p10/static/js/main.c1c32af5.js.map",
+    "787.227b7f2b.chunk.js.map": "/debugger-une-application_p10/static/js/787.227b7f2b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.ee2a8b22.css",
-    "static/js/main.d93b713b.js"
+    "static/js/main.c1c32af5.js"
   ]
 }
