@@ -21,13 +21,17 @@ const EventList = () => {
       : data?.events) || [];
  
 // apply pagination on filtered events
-    const paginationEvents = filteredEvents.slice(
+    const pagination = filteredEvents.slice(
       (currentPage - 1) * PER_PAGE,
       currentPage * PER_PAGE
     );
                            
-    const pageNumber = Math.ceil(filteredEvents.length / PER_PAGE);
-
+     const pageNumber = Math.ceil(filteredEvents.length / PER_PAGE);
+    // const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) ;
+   // console.log("floor", Math.floor((filteredEvents?.length || 0) / PER_PAGE) )
+   // console.log("ceil", Math.ceil(filteredEvents.length / PER_PAGE))
+   // console.log("filtered", filteredEvents.length)
+   //  console.log("perpage", PER_PAGE)
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
@@ -48,7 +52,7 @@ const EventList = () => {
             onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
           <div id="events" className="ListContainer">
-            {paginationEvents.map((event) => (
+            {pagination.map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
                   <EventCard
