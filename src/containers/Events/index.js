@@ -28,16 +28,7 @@ const EventList = () => {
   
   L'indice de fin est calculé comme currentPage * PER_PAGE. Cela détermine où la tranche doit se terminer. Par exemple, si PER_PAGE vaut 10 et currentPage vaut 2, alors l'index de fin serait 20, ce qui signifie que vous souhaitez obtenir les éléments de l'index 10 à 19.
   */
-  const pageNumber = Math.ceil(filteredEvents.length / PER_PAGE);
-  // floor renvoie le plus grand entier qui est inférieur ou égal à un nombre
-  // ceil retourne le plus petit entier supérieur ou égal au nombre donné.
-  console.log("currentPage", currentPage)
-  console.log("filteredEvents", filteredEvents)
-  console.log("floor", (Math.floor((filteredEvents.length) / PER_PAGE) + 1))
-  // même résultat avec trunc, round
-  console.log("ceil", Math.ceil(filteredEvents.length / PER_PAGE))
-  console.log("filtered", filteredEvents.length)
-
+ 
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
@@ -58,10 +49,8 @@ const EventList = () => {
             onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
           <div id="events" className="ListContainer">
-            {(filteredEvents.slice(
-              (currentPage - 1) * PER_PAGE,
-              currentPage * PER_PAGE
-            )).map((event) => (
+            {(filteredEvents.slice((currentPage - 1) * PER_PAGE,
+              currentPage * PER_PAGE)).map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
                   <EventCard
@@ -76,7 +65,7 @@ const EventList = () => {
             ))}
           </div>
           <div className="Pagination">
-            {[...Array(pageNumber || 0)].map((_, n) => (
+            {[...Array(Math.ceil(filteredEvents.length / PER_PAGE) || 0)].map((_, n) => (
               // eslint-disable-next-line react/no-array-index-key
               <a key={n} href="#events" onClick={() => setCurrentPage(n + 1)}>
                 {n + 1}
