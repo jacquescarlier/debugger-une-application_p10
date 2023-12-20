@@ -12,13 +12,13 @@ const Slider = () => {
   );
 
   const slideLength = data?.focus?.length;
-
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index < slideLength - 1 ? index + 1: 0),
-      5000
+      () => setIndex(index >= slideLength - 1 ? 0 : index + 1),
+      4000
     );
   };
+ 
   useEffect(() => {
     nextCard();
   });

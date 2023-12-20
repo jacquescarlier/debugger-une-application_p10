@@ -20,6 +20,8 @@ const EventList = () => {
       ? data?.events.filter(event => event.type === type)
       : data?.events) || [];
  
+
+      //
 /* La méthode slice est utilisée pour extraire une partie du tableau filteredEvents pour la page actuelle. Voici une répartition des paramètres transmis à slice :
 
 L'indice de départ est calculé comme (currentPage - 1) * PER_PAGE. En effet, les indices de tableau sont de base zéro, donc si vous êtes sur la première page (currentPage vaut 1), vous voulez commencer à partir de l'index 0. Si vous êtes sur la deuxième page, vous voulez pour commencer à partir de l'index PER_PAGE, et ainsi de suite.
