@@ -12,6 +12,7 @@ const Select = ({
   titleEmpty,
   label,
   type = "normal",
+  
 }) => {
   const [value, setValue] = useState();
   const [collapsed, setCollapsed] = useState(true);
