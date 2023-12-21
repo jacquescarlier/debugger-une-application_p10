@@ -10,9 +10,11 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtB.date) < new Date(evtA.date) ? -1 : 1
   );
+
+  const sliderLength = data?.focus?.length;
   const nextCard = () => {
     setTimeout(
-      () => setIndex(index >= byDateDesc.length - 1 ? 0 : index + 1),
+      () => setIndex(index >= sliderLength - 1 ? 0 : index + 1),
       4000
     );
   };
