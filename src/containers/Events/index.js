@@ -14,12 +14,23 @@ const EventList = () => {
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
 
-  // filter events based on selected type
-  const filteredEvents = (
-    type
-      ? data?.events.filter(event => event.type === type)
-      : data?.events) || [];
 
+  // filter events based on selected type
+ // const filteredEvents = (
+    // type
+    //  ? data?.events.filter(event => event.type === type)
+    //  : data?.events) || [];
+    const filteredEvents = (
+      (!type
+        ? data?.events
+        : data?.events) || []
+    ).filter((event) => {
+      if ((!type || event.type === type)) 
+      {
+        return true;
+      }
+      return false;
+    });
 
   //
   /* La méthode slice est utilisée pour extraire une partie du tableau filteredEvents pour la page actuelle. Voici une répartition des paramètres transmis à slice :
@@ -29,12 +40,13 @@ const EventList = () => {
   L'indice de fin est calculé comme currentPage * PER_PAGE. Cela détermine où la tranche doit se terminer. Par exemple, si PER_PAGE vaut 10 et currentPage vaut 2, alors l'index de fin serait 20, ce qui signifie que vous souhaitez obtenir les éléments de l'index 10 à 19.
   */
  
+  const typeList = new Set(data?.events.map((event) => event.type));
+  const pageNumber = Math.ceil((filteredEvents?.length || 0) / PER_PAGE) ;
+  
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
   };
-
-  const typeList = new Set(data?.events.map((event) => event.type));
 
   return (
     <>
@@ -65,7 +77,7 @@ const EventList = () => {
             ))}
           </div>
           <div className="Pagination">
-            {[...Array(Math.ceil(filteredEvents.length / PER_PAGE) || 0)].map((_, n) => (
+          {[...Array(pageNumber || 0)].map((_, n) => (
               // eslint-disable-next-line react/no-array-index-key
               <a key={n} href="#events" onClick={() => setCurrentPage(n + 1)}>
                 {n + 1}
