@@ -13,23 +13,18 @@ const EventList = () => {
   const { data, error } = useData();
   const [type, setType] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+
   const startIndex = (currentPage - 1) * PER_PAGE;
   const endIndex = currentPage * PER_PAGE;
+  
   const filteredEvents = (
-    (!type
-      ? data?.events
-      : data?.events) || []
+    (!type ? data?.events : data?.events) || []
   ).filter((event) => {
-    if ((!type || event.type === type)) 
-    {
+    if ((!type || event.type === type)) {
       return true;
     }
     return false;
   });
-  // {filteredEvents.map((event) => (
-  //  <Modal key={event.id} Content={<ModalEvent event={event} />}>
-  //  {({ setIsOpened }) =>
-  // j'ai retiré l'utilisation de cette fonction qui pourtant optimise le code
   /* La méthode slice est utilisée pour extraire une partie du tableau filteredEvents pour la page actuelle. Voici une répartition des paramètres transmis à slice :
   L'indice de départ est calculé comme (currentPage - 1) * PER_PAGE. En effet, les indices de tableau sont de base zéro, donc si vous êtes sur la première page (currentPage vaut 1), vous voulez commencer à partir de l'index 0. Si vous êtes sur la deuxième page, vous voulez pour commencer à partir de l'index PER_PAGE, et ainsi de suite.
   L'indice de fin est calculé comme currentPage * PER_PAGE. Cela détermine où la tranche doit se terminer. Par exemple, si PER_PAGE vaut 10 et currentPage vaut 2, alors l'index de fin serait 20, ce qui signifie que vous souhaitez obtenir les éléments de l'index 10 à 19.
@@ -59,18 +54,18 @@ const EventList = () => {
           />
           <div id="events" className="ListContainer">
             {(eventsForCurrentPage).map((event) => (
-                <Modal key={event.id} Content={<ModalEvent event={event} />}>
-                  {({ setIsOpened }) => (
-                    <EventCard
-                      onClick={() => setIsOpened(true)}
-                      imageSrc={event.cover}
-                      title={event.title}
-                      date={new Date(event.date)}
-                      label={event.type}
-                    />
-                  )}
-                </Modal>
-              ))}
+              <Modal key={event.id} Content={<ModalEvent event={event} />}>
+                {({ setIsOpened }) => (
+                  <EventCard
+                    onClick={() => setIsOpened(true)}
+                    imageSrc={event.cover}
+                    title={event.title}
+                    date={new Date(event.date)}
+                    label={event.type}
+                  />
+                )}
+              </Modal>
+            ))}
           </div>
           <div className="Pagination">
             {[...Array(pageNumber || 0)].map((_, n) => (
