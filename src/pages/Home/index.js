@@ -16,8 +16,9 @@ import { useData } from "../../contexts/DataContext";
 const Page = () => {
   const { data } = useData()
 
-  const lastEvent = ((data?.events)?.sort((evtA, evtB) => new Date(evtA.date) > new Date(evtB.date) ? -1 : 1))?.[0];
-  
+    const lastEvent = ((data?.events)?.sort((evtA, evtB) => new Date(evtA.date) > new Date(evtB.date) ? -1 : 1))?.[0]; 
+  // la constante comprend la liste des events "data?.events", le trie des events "events?.sort((evtA, evtB) => (new Date(evtA.date) > new Date(evtB.date) ? -1 : 1))" et enfin la sélection du premier élément du tableau "[0]"
+  // utilisation de ? pour accéder en toute sécurité aux valeur voulus. si null ou undefined retour "undefined"
   return <>
     <header>
       <Menu />
