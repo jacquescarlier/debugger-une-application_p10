@@ -74,7 +74,7 @@ const Page = () => {
             imageSrc="/images/linkedin-sales-solutions-pAtA8xe_iVM-unsplash.png"
             name="Jean-baptiste"
             position="Directeur marketing"
-            imageAlt="photo de Jean-Batiste"
+            imageAlt="photo de Jean-Baptiste"
           />
           <PeopleCard
             imageSrc="/images/christina-wocintechchat-com-SJvDxw0azqw-unsplash.png"
