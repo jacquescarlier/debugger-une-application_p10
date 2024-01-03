@@ -31,14 +31,14 @@ const Page = () => {
         <h2 className="Title" id="nos-services">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
-          <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
+          <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png" imageAlt="Soirée d'entreprise">
             <h3>Soirée d’entreprise</h3>
             Une soirée d’entreprise vous permet de réunir vos équipes pour un
             moment convivial afin de valoriser votre société en projetant une
             image dynamique. Nous vous proposons d’organiser pour vous vos
             diners et soirée d’entreprise
           </ServiceCard>
-          <ServiceCard imageSrc="/images/hall-expo.png">
+          <ServiceCard imageSrc="/images/hall-expo.png" imageAlt="Conférences">
             <h3>Conférences</h3>
             77 events vous propose d’organiser votre évènement, quelle que soit
             sa taille, en s’adaptant à votre demande et à vos demandes. En tant
@@ -46,7 +46,7 @@ const Page = () => {
             parfait ainsi que des solutions inédites pour capter votre audience
             et faire de cet évènement un succès
           </ServiceCard>
-          <ServiceCard imageSrc="/images/sophia-sideri-LFXMtUuAKK8-unsplash1.png">
+          <ServiceCard imageSrc="/images/sophia-sideri-LFXMtUuAKK8-unsplash1.png" imageAlt="Experience digitale">
             <h3>Experience digitale</h3>
             Notre agence experte en contenus immersifs offre des services de
             conseil aux entreprises, pour l’utilisation de la réalité virtuelle,
@@ -68,31 +68,37 @@ const Page = () => {
             imageSrc="/images/stephanie-liverani-Zz5LQe-VSMY-unsplash.png"
             name="Samira"
             position="CEO"
+            imageAlt="photo de Samira"
           />
           <PeopleCard
             imageSrc="/images/linkedin-sales-solutions-pAtA8xe_iVM-unsplash.png"
             name="Jean-baptiste"
             position="Directeur marketing"
+            imageAlt="photo de Jean-Batiste"
           />
           <PeopleCard
             imageSrc="/images/christina-wocintechchat-com-SJvDxw0azqw-unsplash.png"
             name="Alice"
             position="CXO"
+            imageAlt="photo d'Alice"
           />
           <PeopleCard
             imageSrc="/images/jonas-kakaroto-KIPqvvTOC1s-unsplash.png"
             name="Luís"
             position="Animateur"
+            imageAlt="photo de Luis"
           />
           <PeopleCard
             imageSrc="/images/amy-hirschi-b3AYk8HKCl0-unsplash1.png"
             name="Christine"
             position="VP animation"
+            imageAlt="photo de Christine"
           />
           <PeopleCard
             imageSrc="/images/christina-wocintechchat-com-0Zx1bDv5BNY-unsplash.png"
             name="Isabelle"
             position="VP communication"
+            imageAlt="photo d'Isabelle"
           />
         </div>
       </section>
@@ -128,6 +134,7 @@ const Page = () => {
             date={new Date(lastEvent?.date)}
             small
             label={lastEvent?.type}
+            imageAlt={lastEvent?.title}
           />
         )}
       </div>
